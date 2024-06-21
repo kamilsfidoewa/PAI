@@ -1,0 +1,110 @@
+* {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 15px;
+}
+
+button {
+    background-color: #007BFF;
+    border-color: #0056b3;
+    border-radius: 10%;
+    color: white;
+    animation-name: borderanim;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse
+}
+
+form {
+    width: 50%;
+}
+
+.person {
+    padding: 30px;
+    border-radius: 15px;
+    border-color: #0056b3;
+    background-color: #e1f5fe;
+}
+
+@keyframes borderanim {
+    from {
+        background-color: #007BFF;
+    }
+
+    to {
+        background-color: #0056b3;
+    }
+}
+
+.person>div {
+    padding: 5px;
+}
+
+.person>div+div {
+    padding-top: 20px;
+}
+
+.radio-inline {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    padding-top: 50px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+input[type="radio"] {
+    accent-color: #0056b3;
+}
+
+span.err {
+    color: red;
+    font-weight: bold;
+    padding-left: 2px;
+    font-size: small;
+}
+
+#maiden_name {
+    color: white;
+    background-color: #0056b3;
+}
+
+table,
+td {
+    border: 1px solid;
+    border-color: black;
+}
+
+table {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.table {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

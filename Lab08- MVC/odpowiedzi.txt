@@ -1,0 +1,54 @@
+1.Do czego służą poszczególne warstwy architektury MVC i jak są połączone?
+
+Architektura MVC (Model-View-Controller) rozdziela aplikację na trzy główne warstwy, co ułatwia zarządzanie i rozwój kodu.
+
+Model odpowiada za dane i logikę biznesową, zarządzając operacjami takimi jak pobieranie, zapisywanie i aktualizowanie danych. 
+Widok prezentuje te dane użytkownikowi, renderując interfejs na podstawie danych z modelu. 
+Kontroler przetwarza dane wejściowe od użytkownika, komunikuje się z modelem w celu modyfikacji danych, a następnie wybiera odpowiedni widok do wyświetlenia wyników.
+
+Interakcje w MVC przebiegają następująco: użytkownik wchodzi w interakcję z widokiem, który przekazuje dane do kontrolera. 
+Kontroler przetwarza te dane, komunikując się z modelem, a następnie aktualizuje widok, aby wyświetlić zaktualizowane informacje użytkownikowi.
+
+
+2.Jakie są konwencję nazewnictwa dla: 
+(i) modeli:
+Nazwy modeli są zazwyczaj rzeczownikami w liczbie pojedynczej, pisane w PascalCase (każde słowo zaczyna się wielką literą).
+Np.: User, Product, Order
+
+(ii) kontrolerów:
+Nazwy kontrolerów są rzeczownikami lub frazami w liczbie mnogiej z końcówką "Controller", pisane w PascalCase 
+Np.:  UsersController, ProductsController, OrdersController
+
+(iii) akcji kontrolera:
+Nazwy akcji są czasownikami lub frazami czasownikowymi opisującymi operację, którą wykonują.
+Np.:index, show, create, update, delete
+
+(iv) widoków:
+Nazwy widoków są zazwyczaj takie same jak nazwy akcji kontrolera, które obsługują 
+
+(v) folderów widoków:
+Nazwy folderów widoków odpowiadają nazwom kontrolerów, ale bez końcówki "Controller" i w liczbie mnogiej.
+Np.: users, products, orders
+
+3. Jak dane przekazywane są z kontrolerów do widoków (podaj 2 opcje)?
+Przez zmienne instancyjne (Instance Variables) -> Kontroler ustawia zmienne instancyjne w swoich akcjach, które są następnie dostępne w widoku.
+Np.: @user = User.find(params[:id]) w kontrolerze, dostępne jako @user w widoku
+lub za pomocą obiektów przekazywanych do widoku -> Kontroler przekazuje dane do widoku jako argumenty metody renderującej
+Np.: w ASP.NET: View(model), gdzie model to obiekt zawierający dane, dostępne w widoku jako Model
+
+4. Jak mapowane są URLs na akcje kontrolerów?
+W architekturze MVC mapowanie URL na akcje kontrolerów odbywa się za pomocą routingu, gdzie w plikach konfiguracyjnych definiuje się reguły łączące
+określone URL z odpowiednimi akcjami kontrolerów. Dodatkowo, wiele frameworków stosuje konwencje nazw,
+które automatycznie mapują URL na odpowiednie akcje na podstawie struktury URL.
+
+5.Jak ograniczać akcje kontrolera tak by były uruchamian tylko z użyciem wskazanych typów
+zapytań HTTP (np. ograniczenie do HTTP POST)?
+
+Aby ograniczyć akcje kontrolera do uruchamiania tylko z wybranymi typami zapytań HTTP, można użyć mechanizmu zwanego filtrowaniem akcji (action filtering).
+W przypadku ograniczenia do zapytań typu HTTP POST, można zastosować atrybut lub dekorator, który sprawdza typ zapytania HTTP przed wykonaniem akcji kontrolera.
+Np.: w ASP.NET można użyć atrybutu [HttpPost] nad definicją akcji kontrolera, co spowoduje, że ta akcja będzie dostępna tylko dla żądań HTTP POST.
+
+6. Gdzie zdefiniowana jest walidacja danych i jak realizowana jest w widokach i kontolerach?
+Walidacja danych jest zazwyczaj definiowana w warstwie Modelu w architekturze MVC, określając reguły walidacji dla właściwości modelu. 
+W widokach można wyświetlać komunikaty o błędach przekazane z Modelu, a w kontrolerach przeprowadzać dodatkową walidację przed zapisaniem
+danych do Modelu i obsługiwać błędy walidacji przed dalszym przetwarzaniem.

@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" title="Arkusz stylów CSS" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="table">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Wiersz 1</td>
+                    </tr>
+                    <tr>
+                        <td>Wiersz 2</td>
+                    </tr>
+                    <tr>
+                        <td>Wiersz 3</td>
+                    </tr>
+                    <tr>
+                        <td>Wiersz 4</td>
+                    </tr>
+                    <tr>
+                        <td>Wiersz 5</td>
+                    </tr>
+                    <tr>
+                        <td>Wiersz 6</td>
+                    </tr>
+                    <tr>
+                        <td>Wiersz 7</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn_first" onclick="swapRows(this)">Zmiana</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <form>
+            <fieldset class="person">
+
+                <div class="name">
+                    <label for="name" class="form-label"></label>
+                    <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
+                        placeholder="Imię" />
+                    <span id="e_name" class="err"></span>
+                </div>
+
+
+                <div class="surname">
+                    <label for="surname" class="form-label"></label>
+                    <input type="text" class="form-control" name="surname" id="surname" aria-describedby="helpId"
+                        placeholder="Nazwisko" />
+                    <span id="e_surname" class="err"></span>
+                </div>
+
+
+                <div class="radio-inline">
+                    <div>
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="kobieta"
+                            onclick="showElement('maiden_name')" />
+                        <label class="form-check-label" for="">kobieta</label>
+                    </div>
+
+
+                    <div>
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="mężczyzna"
+                            onclick="hideElement('maiden_name')" />
+                        <label class="form-check-label" for="">mężczyzna</label>
+                    </div>
+
+                    <div>
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="inna"
+                            onclick="showElement('maiden_name')" />
+                        <label class="form-check-label" for="">inna</label>
+                    </div>
+                </div>
+
+                <div class="surname_f">
+                    <label for="surname_f" class="form-label"></label>
+                    <span id="maiden_name"><input type="text" class="form-control" name="surname_f" id="surname_f"
+                            aria-describedby="helpId" placeholder="Nazwisko panieńskie" /></span>
+                    <span id="e_surname_f" class="err"></span>
+                </div>
+
+                <div class="e-mail">
+                    <label for="e-mail" class="form-label"></label>
+                    <input type="text" class="form-control" name="e-mail" id="e-mail" aria-describedby="helpId" placeholder="E-mail" />
+                    <span id="e_e-mail" class="err"></span>
+                </div>
+
+                <div class="street">
+                    <label for="street" class="form-label"></label>
+                    <input type="text" class="form-control" name="street" id="street" aria-describedby="helpId"
+                        placeholder="Ulica" />
+                    <span id="e_street" class="err"></span>
+                </div>
+
+                <div class="city">
+                    <label for="city" class="form-label"></label>
+                    <input type="text" class="form-control" name="city" id="city" aria-describedby="helpId"
+                        placeholder="Miasto" />
+                    <span id="e_city" class="err"></span>
+                </div>
+
+                <div class="post_code">
+                    <label for="post_code" class="form-label"></label>
+                    <input type="text" class="form-control" name="post_code" id="post_code" aria-describedby="helpId"
+                        placeholder="Kod pocztowy" />
+                    <span id="e_post_code" class="err"></span>
+                </div>
+                
+                <div class="more">
+                    <label for="more" class="form-label"></label>
+                    <textarea class="form-control" name="more" id="more" rows="3" placeholder="Uwagi" onkeyup="cnt(this.form.more, document.getElementById('zostalo'), 150)"></textarea>
+                    <tr>
+                        <td>Pozostało <span id="zostalo">150</span> znaków</td>
+                    </tr>
+                </div>
+
+            </fieldset>
+
+            <div class="button">
+                <button type="submit" class="btn-primary" onclick="return validate(this.form)">Prześlij</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="form_check.js"></script>
+
+</body>
+
+</html>

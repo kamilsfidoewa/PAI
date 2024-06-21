@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            alert('Czy wiesz, że możesz skopiować ten tekst przy pomocy skrótu Ctrl + C.');
+        });
+        $(function () {
+                $('button:contains(\'Zielony\')').click(function () {
+                    $('#classic').addClass('zielona');
+                });
+                $('button:contains(\'mosteczek\')').click(function () {
+                    $('#classic').removeClass('zielona');
+                });
+                $('button:contains(\'ugina\')').click(function () {
+                    $('#toggle').toggleClass('zielona');
+                });
+                $('tr:even').addClass('zielona');
+                 $('ol.a > li').not('.b').addClass('niebieska')
+
+              //  $('ol.a > li').not('*.b a').addClass('tmp')
+              $("ol.a>li").not(':has(>.b>a)').addClass('tmp');
+            });
+
+    </script>
+    <style>
+        .niebieska{
+            background: blue;
+        }
+        .zielona {
+            background: Pink;
+        }
+        .tmp {
+            color: red;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Pierwszy</td>
+        </tr>
+        <tr>
+            <td>Drugi</td>
+        </tr>
+        <tr>
+            <td>Trzeci</td>
+        </tr>
+        <tr>
+            <td>Czwarty</td>
+        </tr>
+        <tr>
+            <td>Piąty</td>
+        </tr>
+        <tr>
+            <td>Szósty</td>
+        </tr>
+    </table>
+<div><span class="b">In-line element with class b and a <a href="#">link</a></span></div>
+    <ol>
+        <li>Hello, world</li>
+        <li><span class="b">In-line element with class b</span></li>
+        <li>
+            <div class="b">In-line element with class b</span>
+                <div>The next element</span>
+        </li>
+        <li><span class="b">In-line element with class b and a <a href="#">link</a></span></li>
+        <li>
+            <div class="b">Block element with class b and a
+                <a href="#">link</a>
+                </span>
+                <div>The next element</span>
+        </li>
+        </ol>
+
+    <hr>
+
+    <ol class="a">
+        <li>Hello, world</li>
+        <li><span class="b">In-line element with class b</span></li>
+                <li>
+                    <div class="b">Block element with class b</span>
+                        <div>The next element</span>
+                </li>
+                <li><span class="b">In-line element with class b and a <a href="#">link</a></span></li>
+                <li>
+                    <div class="b">Block element with class b and a 
+                        <a href="#">link</a>
+                    </span>
+                        <div>The next element</span>
+                </li>
+    </ol>
+
+    <div><button>Zielony</button><button>mosteczek</button><span id="classic">Zmiana przez
+            dodawanie/usuwanie klasy.</span></div>
+    <div><button>ugina się.</button><span id="toggle">Zmiana przez przełączanie
+            klas.</span></div>
+
+</body>
+
+</html>
